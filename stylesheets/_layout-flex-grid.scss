@@ -1,0 +1,405 @@
+// ==========================================================================
+// Flex Grid Layout
+// ==========================================================================
+
+// MEP Dependencies
+@import "tool-conditional-respond-to";
+@import "tool-rem-calc";
+@import "tool-global-config";
+
+/*doc
+---
+title: Flex Grid
+name: flex_grid
+category: layout
+---
+
+Flex based grid system
+
+```html_example
+<div class="flex-grid">
+  <div class="flex-grid__cell">
+      <div class="card">
+        <h2>Lorem ipsum dolor sit amet</h2>
+        <p>lorem ipsum dolor sit amet consecteteur adipicising elit aram lorem ipsum.</p>
+      </div>
+  </div>
+</div>
+```
+*/
+
+.flex-grid {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.flex-grid__cell {
+    flex: 1;
+}
+
+/*doc
+---
+title: Flex Grid Alignment
+name: flex_grid_alignment
+category: layout
+---
+
+Vertically align cell items top middle or bottom
+
+```html_example
+<div class="flex-grid flex-grid--top">
+  <div class="flex-grid__cell">
+      <div class="card">
+        <h2>We're aligned top vertically</h2>
+        <p>lorem ipsum dolor sit amet consecteteur adipicising elit aram lorem ipsum.</p>
+      </div>
+  </div>
+  <div class="flex-grid__cell">
+      <div class="card">
+        <h2>We're aligned top vertically</h2>
+        <p>lorem ipsum dolor sit amet consecteteur adipicising elit aram lorem ipsum.</p>
+      </div>
+  </div>
+</div>
+```
+
+```html_example
+<div class="flex-grid flex-grid--middle">
+  <div class="flex-grid__cell">
+      <div class="card">
+        <h2>We're aligned middle vertically</h2>
+        <p>lorem ipsum dolor sit amet consecteteur adipicising elit aram lorem ipsum.</p>
+      </div>
+  </div>
+  <div class="flex-grid__cell">
+      <div class="card">
+        <h2>We're aligned middle vertically</h2>
+        <p>lorem ipsum dolor sit amet consecteteur adipicising elit aram lorem ipsum.</p>
+      </div>
+  </div>
+</div>
+```
+
+```html_example
+<div class="flex-grid flex-grid--bottom">
+  <div class="flex-grid__cell">
+      <div class="card">
+        <h2>We're aligned bottom vertically</h2>
+        <p>lorem ipsum dolor sit amet consecteteur adipicising elit aram lorem ipsum.</p>
+      </div>
+  </div>
+  <div class="flex-grid__cell">
+      <div class="card">
+        <h2>We're aligned bottom vertically</h2>
+        <p>lorem ipsum dolor sit amet consecteteur adipicising elit aram lorem ipsum.</p>
+      </div>
+  </div>
+</div>
+```
+
+Horizontally align cell from the center
+
+```html_example
+<div class="flex-grid flex-grid--justify--center">
+  <div class="flex-grid__cell">
+      <div class="card">
+        <h2>We're aligned from the middle horizontally</h2>
+        <p>lorem ipsum dolor sit amet consecteteur adipicising elit aram lorem ipsum.</p>
+      </div>
+  </div>
+  <div class="flex-grid__cell">
+      <div class="card">
+        <h2>We're aligned from the middle horizontally</h2>
+        <p>lorem ipsum dolor sit amet consecteteur adipicising elit aram lorem ipsum.</p>
+      </div>
+  </div>
+</div>
+```
+*/
+
+.flex-grid--top {
+    align-items: flex-start;
+}
+
+.flex-grid--bottom {
+    align-items: flex-end;
+}
+
+.flex-grid--center {
+    align-items: center;
+}
+
+.flex-grid--justify-center {
+    justify-content: center;
+}
+
+/*doc
+---
+title: Flex Grid Pull Override
+name: flex_grid_pull_override
+category: layout
+---
+
+Flex equivelant of float:right; adds an automatic margin to the left forcing the element to the furthest right point.
+
+```html_example
+<div class="flex-grid">
+    <span>I'm on the left</span>
+
+    <div class="flex-grid-pull--right">
+        <span>I'm on the right</span>
+    </div>
+</div>
+```
+*/
+
+.flex-grid-pull--right {
+    margin-left: auto;
+}
+
+/*doc
+---
+title: Flex Grid Cells
+name: flex_grid_cells
+category: layout
+---
+
+flex-grid--fit will dynamically fit elements into the container and give widths based on parent divided by number of cells
+
+```html_example
+<div class="flex-grid--fit">
+  <div class="flex-grid__cell">
+      <div class="card">
+        <h2>We're dynamic widths</h2>
+        <p>lorem ipsum dolor sit amet consecteteur adipicising elit aram lorem ipsum.</p>
+      </div>
+  </div>
+  <div class="flex-grid__cell">
+      <div class="card">
+        <h2>We're dynamic widths</h2>
+        <p>lorem ipsum dolor sit amet consecteteur adipicising elit aram lorem ipsum.</p>
+      </div>
+  </div>
+<div class="flex-grid__cell">
+      <div class="card">
+        <h2>We're dynamic widths</h2>
+        <p>lorem ipsum dolor sit amet consecteteur adipicising elit aram lorem ipsum.</p>
+      </div>
+  </div>
+</div>
+```
+
+flex-grid--full will make all cells full width of their parent
+
+```html_example
+<div class="flex-grid--full">
+  <div class="flex-grid__cell">
+      <div class="card">
+        <h2>We're full width</h2>
+        <p>lorem ipsum dolor sit amet consecteteur adipicising elit aram lorem ipsum.</p>
+      </div>
+  </div>
+  <div class="flex-grid__cell">
+      <div class="card">
+        <h2>We're full width</h2>
+        <p>lorem ipsum dolor sit amet consecteteur adipicising elit aram lorem ipsum.</p>
+      </div>
+  </div>
+  <div class="flex-grid__cell">
+      <div class="card">
+        <h2>We're full width</h2>
+        <p>lorem ipsum dolor sit amet consecteteur adipicising elit aram lorem ipsum.</p>
+      </div>
+  </div>
+</div>
+```
+
+flex-grid--1of2 will make all cells always 50% width of their parent
+flex-grid--1of3 will make all cells always 33.333% width of their parent
+flex-grid--1of4 will make all cells always 25% width of their parent
+
+```html_example
+<div class="flex-grid--1of2">
+  <div class="flex-grid__cell">
+      <div class="card">
+        <h2>We're 50% of our parent</h2>
+        <p>lorem ipsum dolor sit amet consecteteur adipicising elit aram lorem ipsum.</p>
+      </div>
+  </div>
+  <div class="flex-grid__cell">
+      <div class="card">
+        <h2>We're 50% of our parent</h2>
+        <p>lorem ipsum dolor sit amet consecteteur adipicising elit aram lorem ipsum.</p>
+      </div>
+  </div>
+  <div class="flex-grid__cell">
+      <div class="card">
+        <h2>We're 50% of our parent</h2>
+        <p>lorem ipsum dolor sit amet consecteteur adipicising elit aram lorem ipsum.</p>
+      </div>
+  </div>
+</div>
+```
+*/
+
+// Grid Cells
+.flex-grid--fit > .flex-grid__cell {
+    flex: 1;
+}
+
+.flex-grid--full > .flex-grid__cell {
+    flex: 0 0 100%;
+}
+
+.flex-grid--1of2 > .flex-grid__cell {
+    flex: 0 0 50%;
+}
+
+.flex-grid--1of3 > .flex-grid__cell {
+    flex: 0 0 33.3333%;
+}
+
+.flex-grid--1of4 > .flex-grid__cell {
+    flex: 0 0 25%;
+}
+
+/*doc
+---
+title: Flex Grid Cell Responsive
+name: flex_grid_cell_responsive
+category: layout
+---
+
+responsive cell layouts - see above example for all available types
+
+```html_example
+<div class="flex-grid--1of2--medium">
+  <div class="flex-grid__cell">
+      <div class="card">
+        <h2>I'm full width till medium, them i'm half width</h2>
+        <p>lorem ipsum dolor sit amet consecteteur adipicising elit aram lorem ipsum.</p>
+      </div>
+  </div>
+  <div class="flex-grid__cell">
+      <div class="card">
+        <h2>I'm full width till medium, them i'm half width</h2>
+        <p>lorem ipsum dolor sit amet consecteteur adipicising elit aram lorem ipsum.</p>
+      </div>
+  </div>
+</div>
+```
+*/
+
+@each $bp, $config in global-config('grids') {
+    @if map-get($config, width) {
+        @include respond-to($bp) {
+            .flex-grid--fit--#{$bp} > .flex-grid__cell {
+                flex: 1;
+            }
+            .flex-grid--full--#{$bp} > .flex-grid__cell {
+                flex: 0 0 100%;
+            }
+            .flex-grid--1of2--#{$bp} > .flex-grid__cell {
+                flex: 0 0 50%;
+            }
+            .flex-grid--1of3--#{$bp} > .flex-grid__cell {
+                flex: 0 0 33.3333%;
+            }
+            .flex-grid--1of4--#{$bp} > .flex-grid__cell {
+                flex: 0 0 25%;
+            }
+        }
+    }
+}
+
+/*doc
+---
+title: Flex Grid Gutters
+name: flex_grid_gutters
+category: layout
+---
+
+Give flexed items gutters
+
+```html_example
+<div class="flex-grid flex-grid--gutters">
+  <div class="flex-grid__cell">
+      <div class="card">
+        <h2>I've got a gutter</h2>
+        <p>lorem ipsum dolor sit amet consecteteur adipicising elit aram lorem ipsum.</p>
+      </div>
+  </div>
+  <div class="flex-grid__cell">
+      <div class="card">
+        <h2>I've got a gutter</h2>
+        <p>lorem ipsum dolor sit amet consecteteur adipicising elit aram lorem ipsum.</p>
+      </div>
+  </div>
+  <div class="flex-grid__cell">
+      <div class="card">
+        <h2>I've got a gutter</h2>
+        <p>lorem ipsum dolor sit amet consecteteur adipicising elit aram lorem ipsum.</p>
+      </div>
+  </div>
+</div>
+```
+*/
+
+.flex-grid--gutters {
+    margin-left: -1em;
+    margin-right: -1em;
+}
+
+.flex-grid--gutters > .flex-grid__cell {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+/*doc
+---
+title: Flex Grid Gutters Responsive
+name: flex_grid_gutters_responsive
+category: layout
+---
+
+Give flexed items responsive gutters
+
+```html_example
+<div class="flex-grid flex-grid--gutters--medium">
+  <div class="flex-grid__cell">
+      <div class="card">
+        <h2>I've got a gutter at medium</h2>
+        <p>lorem ipsum dolor sit amet consecteteur adipicising elit aram lorem ipsum.</p>
+      </div>
+  </div>
+  <div class="flex-grid__cell">
+      <div class="card">
+        <h2>I've got a gutter at medium</h2>
+        <p>lorem ipsum dolor sit amet consecteteur adipicising elit aram lorem ipsum.</p>
+      </div>
+  </div>
+  <div class="flex-grid__cell">
+      <div class="card">
+        <h2>I've got a gutter at medium</h2>
+        <p>lorem ipsum dolor sit amet consecteteur adipicising elit aram lorem ipsum.</p>
+      </div>
+  </div>
+</div>
+```
+*/
+
+@each $bp,
+$config in global-config('grids') {
+    @if map-get($config, width) {
+        @include respond-to($bp) {
+            .flex-grid--gutters--#{$bp} {
+                margin: -1em 0 1em -1em;
+            }
+            .flex-grid--gutters--#{$bp} > .flex-grid__cell {
+                padding: 1em 0 0 1em;
+            }
+        }
+    }
+}
+

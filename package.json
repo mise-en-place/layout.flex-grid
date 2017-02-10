@@ -1,0 +1,26 @@
+{
+  "name": "mep-layout.flex-grid",
+  "version": "1.0.0",
+  "description": "Flex Grid",
+  "main": "stylesheets/_layout-flex-grid.scss",
+  "eyeglass": {
+    "needs": "^1.0.0",
+    "name": "layout-flex-grid",
+    "exports": "eyeglass-exports.js"
+  },
+  "keywords": [
+    "eyeglass-module",
+    "sass",
+    "mise-en-place"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mise-en-place/layout.flex-grid.git"
+  },
+  "author": "Kind",
+  "license": "MIT",
+  "dependencies": {
+    "mep-tools.conditional-respond-to": "github:mise-en-place/tools.conditional-respond-to",
+    "mep-tools.global-config": "github:mise-en-place/tools.global-config"
+  }
+}

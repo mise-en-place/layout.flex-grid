@@ -1,4 +1,4 @@
-# layout.flexg-grid
+# layout.flex-grid
 
 # Development notes
 

@@ -1,15 +1,9 @@
 {
   "name": "mep-layout.flex-grid",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Flex Grid",
   "main": "stylesheets/_layout-flex-grid.scss",
-  "eyeglass": {
-    "needs": "^1.0.0",
-    "name": "layout-flex-grid",
-    "exports": "eyeglass-exports.js"
-  },
   "keywords": [
-    "eyeglass-module",
     "sass",
     "mise-en-place"
   ],
